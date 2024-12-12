@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Avanish Patidar</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar Section -->
+    <nav id="navbar" class="flex s-around bg-color-dark">
+        <div class="left-nav">
+            <h2 class="t-white">Avanish Patidar</h2>
+        </div>
+        <div class="right-nav">
+            <ul>
+                <li><a href="#home" class="t-white roboto">Home <i class="fa-solid fa-house"></i></a></li>
+                <li><a href="#about" class="t-white roboto">About Me <i class="fa-solid fa-user"></i></a></li>
+                <li><a href="#skills" class="t-white roboto">Skills <i class="fa-solid fa-code"></i></a></li>
+                <li><a href="#projects" class="t-white roboto">Projects <i class="fa-solid fa-project-diagram"></i></a></li>
+                <li><a href="#contact" class="t-white roboto">Contact <i class="fa-solid fa-rocket"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="flex s-around sw-80 m-auto">
+        <div class="home-left flex-items-center">
+            <div class="home-content">
+               <h6>Hello, I'm</h6> 
+               <h1 class="t-white">Avanish Patidar</h1>
+               <h4 class="popins">Software Engineer</h4>
+               <a href="{% static 'pdf/django.pdf' %}" target="_blank"><button class="btn popins">Resume</button></a>
+               <a class="btn live popins" id="hireme" href="#contact" target="_blank">Let's Talk</a>
+            </div>
+        </div>
+        <div class="home-right flex s-center items-center">
+            <div class="circle flex s-center items-center" id="mainImage">
+                <img src="{% static 'images/mypici.jpg' %}" alt="Profile Picture" class="profile-img">
+            </div>
+        </div>      
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <h1 class="t-center my-2 t-white f-2">About Me</h1>
+        <div class="about-container flex s-around">
+            <div class="about-left flex s-center items-center">
+                <img src="{% static 'images/pro.jpg' %}" alt="Avanish Patidar" class="about-img">
+            </div>
+            <div class="about-right flex">
+                <div class="about-content">
+                    <h1 class="t-white m-b-1 popinss">Avanish Patidar</h1>
+                    <p class="t-white popinss">I'm a passionate Software Engineer with expertise in building scalable web applications. I have experience working with various technologies including Django, JavaScript, and SQL. I'm always eager to learn new things and take on challenges.</p>
+                    <a href="#contact" class="btn popinss" id="hireme">Hire me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">    
+        <h1 class="t-center my-2 t-white f-2">Skills</h1>
+        <div class="skills-container flex s-around h-50">
+            <!-- Skills Image -->
+            <div class="skills-left flex s-center items-center">
+                <img src="{% static 'images/dog.jpg' %}" alt="Skills Image" class="skills-img">              
+            </div>
+            
+            <!-- Skills Bars -->
+            <div class="skills-middle flex items-center">
+                <div class="skills-list">
+                    <div class="bar p-relative"><span class="bar-content-left t-white">Core Java</span><span class="bar-content-right t-white">75%</span></div> 
+                    <div class="bar p-relative"><span class="bar-content-left t-white">HTML/CSS</span><span class="bar-content-right t-white">80%</span></div>
+                    <div class="bar p-relative"><span class="bar-content-left t-white">JavaScript</span><span class="bar-content-right t-white">70%</span></div>
+                    <div class="bar p-relative"><span class="bar-content-left t-white">Django</span><span class="bar-content-right t-white">85%</span></div>
+                    <div class="bar p-relative"><span class="bar-content-left t-white">SQL</span><span class="bar-content-right t-white">80%</span></div>          
+                </div>
+            </div>          
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <h1 class="t-center my-2 t-white f-2">Projects</h1>
+        <div class="projects-container flex s-center">
+            <div class="project-item flex f-col s-center items-center">
+                <h2 class="t-white popins">Amazon Clone</h2>
+                <p class="t-white popinss">A fully responsive e-commerce web application that mimics the functionalities of Amazon, built using Django, React, and PostgreSQL.</p>
+                <div class="button flex s-around">
+                    <a href="#" target="_blank" class="btn mx-1 m-top">View on GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-item flex f-col s-center items-center">
+                <h2 class="t-white popins">Personal Portfolio</h2>
+                <p class="t-white popinss">This portfolio website is designed to showcase my work and skills, using HTML, CSS, and Django for backend functionality.</p>
+                <div class="button flex s-around">
+                    <a href="#" target="_blank" class="btn mx-1 m-top">View on GitHub</a>
+                </div>
+            </div>           
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h1 class="t-center my-2 t-white f-2">Contact Me</h1>
+        <div class="contact-container flex s-around items-center">
+            <div class="form" id="contactform">
+                <form method="post" action="/contact/">
+                    {% csrf_token %}
+                    <div class="name form-div">
+                        <input type="text" name="name" id="name" class="popinss" placeholder="Enter Your Name">
+                    </div>
+                    <div class="email form-div">
+                        <input type="text" name="email" id="email" class="popinss" placeholder="Enter Your Email">
+                    </div>
+                    <div class="phone form-div">
+                        <input type="phone" name="phone" id="phone" class="popinss" placeholder="Enter Your Phone" required>
+                    </div>
+                    <div class="textarea form-div">
+                        <textarea name="content" id="textarea" cols='30' rows='10' class="popinss" placeholder="Enter Your Message"></textarea>
+                    </div>
+                    <button type="submit" class="btn popinss" id="submit">Send</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="footer" class="footer-section">
+        <ul class="footer-nav">
+            <li><a href="#home" class="popinss">Home</a></li>
+            <li><a href="#about" class="popinss">About</a></li>
+            <li><a href="#skills" class="popinss">Skills</a></li>
+            <li><a href="#projects" class="popinss">Projects</a></li>
+            <li><a href="#contact" class="popinss">Contact</a></li>
+        </ul>
+        <div class="footer-icons">
+            <a href="https://www.linkedin.com/in/your-profile" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/your-profile" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.instagram.com/your-profile" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <p class="footer-text">&copy; All Rights Reserved <span class="cpy-white popinss">Avanish Patidar</span></p>
+    </footer>
+</body>
+</html
